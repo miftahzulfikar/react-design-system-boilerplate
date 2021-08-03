@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import { action } from '@storybook/addon-actions'
 import { select } from '@storybook/addon-knobs'
 import { Button } from './Button'
@@ -18,11 +18,29 @@ export default {
 /**
  * Primary button
  */
-export const primary = () => (
-  <Button onClick={action('clicked')} variant="primary">
-    Primary Button
-  </Button>
-)
+export const primary = () => {
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false)
+    }, 2000)
+  }, [])
+
+  const handleRender = () => {
+    if (loading) {
+      return <div>Loading...</div>
+    } else {
+      return (
+        <Button onClick={action('clicked')} variant="primary">
+          Primary Button
+        </Button>
+      )
+    }
+  }
+
+  return handleRender()
+}
 
 /**
  * Secondary button
