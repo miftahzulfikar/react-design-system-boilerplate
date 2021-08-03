@@ -1,4 +1,6 @@
 declare const _default: {
+    title: string;
+    component: any;
     parameters: {
         "storySource": {
             "source": string;
@@ -59,9 +61,10 @@ declare const _default: {
                 };
             };
         };
+        chromatic: {
+            delay: number;
+        };
     };
-    title: string;
-    component: any;
 };
 export default _default;
 /**

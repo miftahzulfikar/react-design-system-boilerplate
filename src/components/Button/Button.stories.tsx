@@ -13,6 +13,9 @@ const options = {
 export default {
   title: 'Components|Button',
   component: Button,
+  parameters: {
+    chromatic: { delay: 2000 },
+  },
 }
 
 /**
